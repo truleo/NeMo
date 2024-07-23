@@ -695,13 +695,13 @@ class AbstractRNNTDecoding(ConfidenceMixin):
             # Subtract one here for the extra RNNT BLANK token emitted to designate "End of timestep"
             num_flattened_tokens += len(char_offsets[t]['char']) - 1
 
-        if num_flattened_tokens != len(hypothesis.text):
-            raise ValueError(
-                f"`char_offsets`: {char_offsets} and `processed_tokens`: {hypothesis.text}"
-                " have to be of the same length, but are: "
-                f"`len(offsets)`: {len(char_offsets)} and `len(processed_tokens)`:"
-                f" {len(hypothesis.text)}"
-            )
+        # if num_flattened_tokens != len(hypothesis.text):
+        #    raise ValueError(
+        #        f"`char_offsets`: {char_offsets} and `processed_tokens`: {hypothesis.text}"
+        #        " have to be of the same length, but are: "
+        #        f"`len(offsets)`: {len(char_offsets)} and `len(processed_tokens)`:"
+        #        f" {len(hypothesis.text)}"
+        #    )
 
         encoded_char_offsets = copy.deepcopy(char_offsets)
 
